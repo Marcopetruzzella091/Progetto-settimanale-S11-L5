@@ -11,7 +11,7 @@ export default function Homedefaulcomponent() {
     const navigate = useNavigate()
 
     useEffect(() => {
-        fetch('  https://striveschool-api.herokuapp.com/api/deezer/search?q=Rock')
+        fetch('  https://striveschool-api.herokuapp.com/api/deezer/search?q=Queen')
             .then(response => response.json())
             .then(json => setRocklist(json.data))
 
@@ -47,7 +47,7 @@ export default function Homedefaulcomponent() {
           <div class="row">
             <div class="col-10">
               <div id="rock">
-                <h2>Rock Classics</h2>
+                <h2>Queen</h2>
                 <div
                   class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 row-cols-xl-4 imgLinks py-3"
                   id="rockSection"
@@ -63,7 +63,7 @@ export default function Homedefaulcomponent() {
               <div   onClick={() => navigate('/album/'+ e.album.id)}>
                 Album: {e.album.title}<br></br>
               </div>
-              <div   onClick={() => navigate('/artist/'+ e.artist.id)}>
+              <div   onClick={() => navigate('/artist/'+ e.artist.name)}>
                 Artist: {e.artist.name}
               </div>
             </p>
