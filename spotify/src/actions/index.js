@@ -5,3 +5,7 @@ export const addprefer = (prefer) => {
 export const addUser = (song) => {
     return { type: 'PLAY_SONG' , payload:song }
 }
+
+export const delprefer = (song) => {
+    return { type: 'DEL_PREFER' , payload:song }
+}

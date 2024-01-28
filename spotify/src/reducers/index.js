@@ -14,6 +14,11 @@ export default function storeReducer(state , action) {
             duration: action.payload.duration ,
           cover : action.payload.album.cover_small
         }
+        case "DEL_PREFER":
+          return {
+              ...state,
+              favourite: state.favourite.filter(f => f.company_name !== action.payload.company_name)
+          }
     
         default:
             break;
