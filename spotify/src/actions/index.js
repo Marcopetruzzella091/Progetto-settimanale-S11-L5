@@ -1,5 +1,5 @@
-export const deleteUser = (user) => {
-    return { type: 'REMOVE_USER' , payload: user }
+export const addprefer = (prefer) => {
+    return { type: 'ADD_PREFER' , payload: prefer.title }
 }
 
 export const addUser = (song) => {
