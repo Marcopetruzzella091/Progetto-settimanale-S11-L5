@@ -56,14 +56,14 @@ export default function Homedefaulcomponent() {
                  {rocklist.map((e, Index)=> {if(Index<= 7 ){
                  return (
                  <div class="col text-center" id={e.id}>
-              <a href=''>
-              <img class="img-fluid" src={e.album.cover_medium} alt="1" onClick={() => navigate('/album/'+ e.album.id)}></img>
-              </a>
+              
+              <img  style={{ cursor: 'pointer' }}class="img-fluid" src={e.album.cover_medium} alt="1" onClick={() => navigate('/album/'+ e.album.id)}></img>
+              
             <p>
-              <div   onClick={() => navigate('/album/'+ e.album.id)}>
+              <div  style={{ cursor: 'pointer' }}  onClick={() => navigate('/album/'+ e.album.id)}>
                 Album: {e.album.title}<br></br>
               </div>
-              <div   onClick={() => navigate('/artist/'+ e.artist.name)}>
+              <div  style={{ cursor: 'pointer' }}  onClick={() => navigate('/artist/'+ e.artist.name)}>
                 Artist: {e.artist.name}
               </div>
             </p>
@@ -112,8 +112,8 @@ export default function Homedefaulcomponent() {
                 >
  {Popculture.map((e, Index)=>  {if(Index<= 7 ){
                  return (
-                 <div class="col text-center" id={e.id} key={e.id}>
-            <a href="/album_page.html?id=51350192">
+                 <div class="col text-center"  style={{ cursor: 'pointer' }} id={e.id} key={e.id}>
+            <a  href="/album_page.html?id=51350192">
               <img class="img-fluid" src={e.album.cover_medium} alt="1"></img>
             </a>
             <p>

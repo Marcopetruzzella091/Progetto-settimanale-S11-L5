@@ -18,6 +18,7 @@ export default function NavBarComponent() {
 
 
 
+
  
 
 
@@ -48,7 +49,7 @@ export default function NavBarComponent() {
           <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div className="navbar-nav">
               <ul>
-                <li onClick={() => navigate('/')}>
+                <li  style={{ cursor: 'pointer' }} onClick={() => navigate('/')}>
                   <a className="nav-item nav-link" >
                   <FaHome  />
                                &nbsp; Home
@@ -63,7 +64,8 @@ export default function NavBarComponent() {
                  
                   <InputGroup className="my-3 " >
         <Form.Control
-          onChange={(e)=>  setSearch(e.target.value)}
+          onChange={(e)=>  setSearch(e.target.value) }
+      
           placeholder="song title"
           aria-label="Recipient's username"
           aria-describedby="basic-addon2"

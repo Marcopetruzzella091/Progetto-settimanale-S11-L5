@@ -3,13 +3,19 @@ import { useParams } from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import { useDispatch, useSelector } from 'react-redux'
+import { addUser } from '../actions';
+
 
 export default function AlbumPage() {
   const { id } = useParams();
   const [album, setAlbum] = useState({});
   const [albumlist, setAlbumlist] = useState([])
+  const playersong = useSelector(state=>state.playsong)
+  const dispatch = useDispatch();
 
   useEffect(() => {
+    console.log(playersong)
     
     const fetchAlbum = async () => {
       try {
@@ -41,7 +47,7 @@ console.log( albumlist)
         <p className="artist-name">{album.artist?.name}</p>
       </div>
       <div className="mt-4 text-center">
-        <button id="btnPlay" className="btn btn-success" type="button">
+        <button id="btnPlay" className="btn btn-success" type="button" onClick={ ()=> dispatch(addUser(albumlist[0].title))}>
           Play
         </button>
       </div>
@@ -51,7 +57,9 @@ console.log( albumlist)
     <div>
     {albumlist.map( (e)=> <div>
             <div class="py-3 trackHover">
-                <a href="#" class="card-title trackHover px-3 text-light" >{e.title}</a>
+            <a href="#" class="card-title trackHover px-3 text-light" >{e.title}  <svg onClick={ ()=> dispatch(addUser(e.title))} xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="mx-2 bi bi-play-circle-fill" viewBox="0 0 16 16">
+  <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M6.79 5.093A.5.5 0 0 0 6 5.5v5a.5.5 0 0 0 .79.407l3.5-2.5a.5.5 0 0 0 0-.814z"/>
+</svg> </a>
                 <small class="duration text-light" >{    Math.floor(e.duration / 60) +":" + e.duration % 60} </small>
             </div></div>  )}
 
@@ -66,18 +74,7 @@ console.log( albumlist)
     </Row>
     </Container> 
             
-           {/*  <div class="py-3 trackHover">
-            <a href="#" class="card-title trackHover px-3" style="color:white" >${
-              track.title
-            }</a>
-            <small class="duration" style="color:white">${Math.floor(
-              parseInt(track.duration) / 60 // setting the duration minutes
-            )}:${
-      parseInt(track.duration) % 60 < 10
-        ? "0" + (parseInt(track.duration) % 60) // checking che duration seconds, if they are less than 10 a 0 is prefixed
-        : parseInt(track.duration) % 60
-    }</small>
-        </div> */}
+          
         </>
 
 

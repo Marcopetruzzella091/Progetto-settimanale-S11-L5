@@ -1,14 +1,25 @@
 import React from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+
 
 export default function FooterNavbarComponent() {
+  const playersong = useSelector(state => state.playsong)
+
+
+
   return (
+<>
+    
     <div class="container-fluid fixed-bottom bg-container pt-1">
+    
     <div class="row">
       <div class="col-lg-10 offset-lg-2">
         <div class="row">
+          
+          
           <div
             class="col-6 col-md-4 col-lg-2 offset-3 offset-md-4 offset-lg-5 playerControls mt-1"
-          >
+          ><p className='text-light'> {(playersong)}</p>
             <div class="row">
               <div class="col">
               <a href="#">
@@ -46,6 +57,6 @@ export default function FooterNavbarComponent() {
         </div>
       </div>
     </div>
-  </div>
+  </div></>
   )
 }

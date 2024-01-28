@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
-export default function ArtistPage() {
+export default function  ArtistPage() {
   const { id } = useParams();
   const [artist, setArtist] = useState({});
+  const navigate = useNavigate()
 
   useEffect(() => {
     const fetchAlbum = async () => {
@@ -63,7 +66,7 @@ export default function ArtistPage() {
               Track: {e.title.length < 16 ? e.title : `${e.title.substring(0, 16)}...`}
             </a>
             <br></br>
-            <a href={`/album_page.html?id=${e.album.id}`}>
+            <a href='#' onClick={() => navigate('/album/'+ e.album.id)}>
               Album: {e.album.title.length < 16 ? e.album.title : `${e.album.title.substring(0, 16)}...`}
             </a>
           </p>
